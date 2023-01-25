@@ -1,0 +1,104 @@
+@import "~bootstrap/scss/bootstrap";
+
+:root {
+    --purple3-color: #9C69E2;
+}
+
+.navbarBackground {
+    background-color: #636469;
+    color: #d6d6d6;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 1em;
+    font-size: 1.5em;
+    justify-content: space-around;
+}
+
+ul.navbarBackground {
+    display: flex; 
+}
+
+li.navbarBackground {
+    display: inline-block;
+}
+
+a {
+    color: #FFFFCC;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f16c20;
+}
+
+.lila {
+    text-align: start;
+}
+
+div.lilaTitle {
+    text-align: start;
+}
+
+body {
+    background-color: #0F0F0F;
+    color: #FFFFCC;
+    background-image: url("/assets/images/grey-background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vmin;
+    padding: 0 14px;
+}
+
+.grid::after {
+    content:"";
+    display: block;
+    flex-grow: 10;
+}
+
+.grid li {
+    list-style-type: none;
+    height: 250px;
+    flex-grow: 1;
+}
+
+.grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.presentation {
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    border-radius: 10px;
+}
+
+// .grid {
+//     max-width: 1300px;
+//     width: 80%;
+//     height: auto;
+//     margin: 15px auto; 
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, 300px);
+//     justify-content: center;
+//     grid-gap: 10px;
+// }
+
+// .grid-item {
+//     width: 300px; 
+//     height: 200px; 
+//     background: #333;
+// }
+
+// @media screen and (max-width: 1201px) {
+//     body {
+//         background-size: inherit;
+//     }
+// }

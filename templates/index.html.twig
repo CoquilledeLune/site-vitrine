@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Portfolio Lila{% endblock %}
+
+
+{% block body %}
+
+{% include "_navbar.html.twig" %}
+
+  <ul class="grid">
+      {% for onecreation in creation %}
+        <li>
+            <img src="{{ asset('build/images/' ~ onecreation.image) }}">    
+        </li>
+      {% endfor %}
+  </ul>
+
+{% endblock %}
+

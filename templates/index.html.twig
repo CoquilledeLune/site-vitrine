@@ -8,13 +8,21 @@
 
 {% include "_navbar.html.twig" %}
 
+<div>
+  <p>
+  </p>
+</div>
   <ul class="grid">
-      {% for onecreation in creation %}
+      {% for onecreation in creations %}
         <li>
             <img src="{{ asset('build/images/' ~ onecreation.image) }}">    
         </li>
       {% endfor %}
   </ul>
+
+<script src="https://apis.google.com/js/platform.js"></script>
+<div class="g-ytsubscribe" style="text-align: center;" data-channelid="UCU_Z_MADfPlN9WdUvg1ho5Q" data-layout="full" 
+data-theme="dark" data-count="hidden"></div>
 
 {% endblock %}
 

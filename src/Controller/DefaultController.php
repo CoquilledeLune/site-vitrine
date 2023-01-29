@@ -13,7 +13,7 @@ Class DefaultController extends AbstractController
   {
     return $this->render('index.html.twig', [
       'title'=>'Lila Jacobieski',
-      'creation' => $creationRepository->findAll(),
+      'creations' => $creationRepository->findAll(),
   ]); 
   }
 }

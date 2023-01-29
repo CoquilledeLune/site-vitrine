@@ -1,25 +1,35 @@
+// H1 font
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+
+// Navbar font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+// Regular text font
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Saira Stencil One', cursive;
+    color: white;
+}
+
 @import "~bootstrap/scss/bootstrap";
 
 :root {
-    --purple3-color: #9C69E2;
+    --grey-navbar-footer: #636469;
 }
 
 .navbarBackground {
-    background-color: #636469;
+    background-color: var(--grey-navbar-footer);
     color: #d6d6d6;
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     list-style-type: none;
-    padding: 1em;
     font-size: 1.5em;
     justify-content: space-around;
-}
-
-ul.navbarBackground {
-    display: flex; 
-}
-
-li.navbarBackground {
-    display: inline-block;
 }
 
 a {
@@ -32,10 +42,6 @@ a:hover {
 }
 
 .lila {
-    text-align: start;
-}
-
-div.lilaTitle {
     text-align: start;
 }
 

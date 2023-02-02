@@ -13,7 +13,7 @@
       <h1 class="fw-bolder col-2">Introduction</h1>
       <button class="navbar-toggler" type="button" data-bs-target="#allthetext" data-bs-toggle="collapse" aria-expanded="false" aria-controls="allthetext">
       <div class="text-start mb-1">Pour moi, être artiste n’est pas un choix. 
-      Être artiste, c’est comme avoir des yeux bleus, ça fait partie de moi et je ne l’ai pas choisi.
+      Être artiste, c’est comme avoir des yeux bleus, ça fait partie de moi et je ne l’ai pas choisi. >>>>
       </div></button>
       <p class="collapse mb-lg-0" id="allthetext">
       La parole n’est pas suffisante pour exprimer toute la gamme de ce que je veux partager.
@@ -55,7 +55,6 @@
           </div>
         </div>
       {% endfor %}
-
 <div class="text-center mb-5">
   <h1 class="fw-bolder fs-2" id="ecriture">ECRITURE</h1>
 </div>
@@ -82,7 +81,7 @@
               <img class="modalImg" src="{{ asset('build/images/' ~ onebook.image) }}" alt="{{onebook.title}}">
               </div>
               <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-secondary col-2 me-5">Acheter<a target="_blank" href={{onebook.link}}></a></button>
+              <button type="button" class="btn btn-secondary col-2 me-5"><a aria-current="page" class="buy" target="_blank" href="{{onebook.link}}">Acheter</a></button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
               </div>
             </div>

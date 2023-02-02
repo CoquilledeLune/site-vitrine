@@ -128,3 +128,17 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+.linkAdmin {
+    color: var(--grey-navbar-footer);
+    text-decoration: none;
+}
+
+.linkAdmin:hover {
+    color: #f16c20;
+}
+
+.buy {
+    color:#FFFFCC;
+    text-decoration: none;
+}

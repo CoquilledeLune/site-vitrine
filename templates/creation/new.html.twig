@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle oeuvre{% endblock %}
+
+{% block body %}
+<div class="bg-secondary mt-5 col-4 ms-5">
+    <h3 class="text-light pt-2 ms-5">Ajouter une nouvelle oeuvre</h3>
+
+    {# <img src="{{ vich_uploader_asset(creationPicture)}}" class=" creation-picture p-0 mt-3 ms-3 me-5"> #}
+<div class="ms-5">
+    {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.size) }}
+        {{ form_row(form.image) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.category) }}
+        <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+    {{ form_end(form) }}
+
+        <a href="{{ path('app_creation_index') }}">Retour à la liste</a>
+</div>
+</div>
+{% endblock %}

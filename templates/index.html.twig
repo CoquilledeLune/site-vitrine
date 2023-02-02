@@ -8,11 +8,25 @@
 
 {% include "_navbar.html.twig" %}
 
-<div>
-  <p>
-  </p>
+<div class="first_background p-5 mb-5">
+  <div class="black_div col-4 p-3 ms-5">
+      <h1 class="fw-bolder col-2">Introduction</h1>
+      <button class="navbar-toggler" type="button" data-bs-target="#allthetext" data-bs-toggle="collapse" aria-expanded="false" aria-controls="allthetext">
+      <div class="text-start mb-1">Pour moi, être artiste n’est pas un choix. 
+      Être artiste, c’est comme avoir des yeux bleus, ça fait partie de moi et je ne l’ai pas choisi.
+      </div></button>
+      <p class="collapse mb-lg-0" id="allthetext">
+      La parole n’est pas suffisante pour exprimer toute la gamme de ce que je veux partager.
+      Par conséquent, je travaille avec d’autres matériaux et plutôt que « travailler », je préfère utiliser le terme « jouer ».
+      Je joue avec la matière, les mots, des pinceaux, des couleurs, une caméra, un ordinateur… et lentement, pas à pas, le jeu se 
+      construit, s’agence pour prendre sa place non plus comme des morceaux de rien mais un équilibre de tout.
+      </p>
+  </div>
 </div>
-  <ul class="grid">
+<div class="text-center mb-5">
+  <h1 class="fw-bolder fs-2" id="galerie">GALERIE</h1>
+</div>
+  <ul class="grid mb-5">
       {% for onecreation in creations %}
         <li>
             <img src="{{ asset('build/images/' ~ onecreation.image) }}">    
@@ -20,9 +34,21 @@
       {% endfor %}
   </ul>
 
-<script src="https://apis.google.com/js/platform.js"></script>
-<div class="g-ytsubscribe" style="text-align: center;" data-channelid="UCU_Z_MADfPlN9WdUvg1ho5Q" data-layout="full" 
-data-theme="dark" data-count="hidden"></div>
+<div class="text-center mb-5">
+  <h1 class="fw-bolder fs-2" id="ecriture">ECRITURE</h1>
+</div>
+<div class="grid mb-5 justify-content-center">
+    <p class="col-5">Banagul et les couleurs
+      <img class="col-4" src="{{ asset('build/images/couvertureBangulOptimised.png') }}" alt="Couverture du livre Banagul et les Couleurs">
+    </p>
+    <p class="col-4">Feuilles d'âme
+      <img class="col-4" src="{{ asset('build/images/couvertureFeuillesDameOptimised.jpg') }}" alt="Couverture du livre Feuilles d'âme">
+    </p>
+</div>
+
+{% include "_footer.html.twig" %}
 
 {% endblock %}
+
+
 

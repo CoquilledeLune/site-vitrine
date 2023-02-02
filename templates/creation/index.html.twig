@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation index{% endblock %}
+
+{% block body %}
+<div class="bg-light mt-5">
+    <h3 class="text-dark pt-2">Liste des oeuvres dans la galerie</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Taille</th>
+                <th>Image</th>
+                <th>Prix</th>
+                <th>Categorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for creation in creations %}
+            <tr>
+                <td>{{ creation.title }}</td>
+                <td>{{ creation.description }}</td>
+                <td>{{ creation.size }}</td>
+                <td class=""><img class="col pict" src="{{asset('build/images/' ~ creation.image)}}" 
+                alt="{{ creation.image }}"></td> 
+                <td>{{ creation.price }}</td>
+                <td>{{ creation.category }}</td>
+                <td>
+                    <a href="{{ path('app_creation_show', {'id': creation.id}) }}">Voir</a>
+                    <a href="{{ path('app_creation_edit', {'id': creation.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_creation_new') }}">Ajouter</a>
+</div>
+{% endblock %}

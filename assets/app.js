@@ -11,3 +11,7 @@ require('bootstrap');
 
 // start the Stimulus application
 import './bootstrap';
+
+//green field
+
+import './green_field.js';

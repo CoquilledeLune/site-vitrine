@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Creation;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,10 +22,12 @@ class CreationType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Description',
                 'attr' => ['class' => 'd-flex'],
-            ] )
-            ->add('size', TextType::class, [
-                'label' => 'Taille',
-                'attr' => ['class' => 'd-flex'],
+                ])
+            ->add('size', FileType::class, [
+                'label' => false,
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false
                 ])
             ->add('image', TextType::class, [
                 'label' => 'Image',

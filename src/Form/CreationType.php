@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Categories;
 use App\Entity\Creation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -37,10 +38,8 @@ class CreationType extends AbstractType
                 'label' => 'Prix',
                 'attr' => ['class' => 'd-flex'],
                 ])
-            ->add('category', TextType::class, [
-                'label' => 'Catégorie',
-                'attr' => ['class' => 'd-flex'],
-                ])
+            ->add('categories', null, [
+                'choice_label' => 'name'])
         ;
     }
 

@@ -33,8 +33,9 @@ class  Creation
     #[ORM\Column]
     private ?float $price = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $category = null;
+    #[ORM\ManyToOne(inversedBy: 'creations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Categories $categories = null;
 
     public function getId(): ?int
     {
@@ -89,18 +90,6 @@ class  Creation
         return $this;
     }
 
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
     public function getSize(): ?string
     {
         return $this->size;
@@ -109,6 +98,18 @@ class  Creation
     public function setSize(?string $size): self
     {
         $this->size = $size;
+
+        return $this;
+    }
+
+    public function getCategories(): ?Categories
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?Categories $categories): self
+    {
+        $this->categories = $categories;
 
         return $this;
     }

@@ -3,6 +3,9 @@
 {% block title %}Creation index{% endblock %}
 
 {% block body %}
+
+<a class="text-light fs-3" href="{{ path('app_index') }}">Retour au site</a>
+
 <div class="bg-light mt-5">
     <h3 class="text-dark pt-2">Liste des oeuvres dans la galerie</h3>
 
@@ -27,7 +30,7 @@
                 <td class=""><img class="col pict" src="{{asset('build/images/' ~ creation.image)}}" 
                 alt="{{ creation.image }}"></td> 
                 <td>{{ creation.price }}</td>
-                <td>{{ creation.category }}</td>
+                <td>{{ creation.categories.name }}</td>
                 <td>
                     <a href="{{ path('app_creation_show', {'id': creation.id}) }}">Voir</a>
                     <a href="{{ path('app_creation_edit', {'id': creation.id}) }}">Modifier</a>
@@ -40,7 +43,39 @@
         {% endfor %}
         </tbody>
     </table>
+<h3 class="text-dark">Liste des livres</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Lien</th>
+                <th>Couverture</th>
+                <th>Categorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.link }}</td>
+                <td class=""><img class="col pict" src="{{asset('build/images/' ~ book.image)}}" 
+                alt="{{ book.image }}"></td> 
+                <td>{{ book.categories.name }}</td>
+                <td>
+                    <a href="{{ path('app_book_show', {'id': book.id}) }}">Voir</a>
+                    <a href="{{ path('app_book_edit', {'id': book.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    <a href="{{ path('app_creation_new') }}">Ajouter</a>
+    <a class="d-flex" href="{{ path('app_creation_new') }}">Ajouter une oeuvre</a>
+    <a class="d-flex" href="{{ path('app_book_new') }}">Ajouter un livre</a>
 </div>
 {% endblock %}

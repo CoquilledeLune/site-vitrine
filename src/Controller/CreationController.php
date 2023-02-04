@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Creation;
 use App\Form\CreationType;
+use App\Repository\BookRepository;
 use App\Repository\CreationRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,15 +13,19 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-#[IsGranted('ROLE_ADMIN')]
+
 #[Route('/creation')]
 class CreationController extends AbstractController
 {
     #[Route('/', name: 'app_creation_index', methods: ['GET'])]
-    public function index(CreationRepository $creationRepository): Response
+    public function index(CreationRepository $creationRepository, BookRepository $bookRepository): Response
     {
+        $creations = $creationRepository->findAll();
+        $books = $bookRepository->findAll();
+
         return $this->render('creation/index.html.twig', [
-            'creations' => $creationRepository->findAll(),
+            'creations' => $creations,
+            'books' => $books,
         ]);
     }
 

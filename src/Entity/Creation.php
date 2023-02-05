@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CreationRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -29,14 +31,8 @@ class  Creation
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $size = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $image = null;
-
-     // On va créer un nouvel attribut à notre entité, qui ne sera pas lié à une colonne
-     // Tu peux d’ailleurs voir que l’attribut ORM column n’est pas spécifié car
-     // On ne rajoute pas de données de type file en bdd
-     #[Vich\UploadableField(mapping: 'poster_file', fileNameProperty: 'image')]
-     private ?File $posterFile = null;
+    #[Vich\UploadableField(mapping: 'image_file', fileNameProperty: 'imageu')]
+    private ?File $imageFile = null;
 
     #[ORM\Column]
     private ?float $price = null;
@@ -44,6 +40,12 @@ class  Creation
     #[ORM\ManyToOne(inversedBy: 'creations')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Categories $categories = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageu = null;
 
     public function getId(): ?int
     {
@@ -70,18 +72,6 @@ class  Creation
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
 
         return $this;
     }
@@ -118,6 +108,45 @@ class  Creation
     public function setCategories(?Categories $categories): self
     {
         $this->categories = $categories;
+
+        return $this;
+    }
+
+    public function setImageFile(File $image = null): Creation
+    {
+        $this->imageFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+       }
+    
+      return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getImageu(): ?string
+    {
+        return $this->imageu;
+    }
+
+    public function setImageu(?string $imageu): self
+    {
+        $this->imageu = $imageu;
 
         return $this;
     }

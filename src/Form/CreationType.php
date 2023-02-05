@@ -2,14 +2,14 @@
 
 namespace App\Form;
 
-use App\Entity\Categories;
 use App\Entity\Creation;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class CreationType extends AbstractType
 {
@@ -28,18 +28,25 @@ class CreationType extends AbstractType
                 'label' => 'Taille',
                 'attr' => ['class' => 'd-flex'],
                 ])
-            ->add('image', FileType::class, [
-                'label' => false,
-                'multiple' => true,
+            ->add('imageFile', VichFileType::class, [
+                'label' => 'Image',
                 'mapped' => false,
-                'required' => false
+                'required' => false,
+                'allow_delete'  => true, 
+                'download_uri' => true
             ])
             ->add('price', TextType::class, [
                 'label' => 'Prix',
                 'attr' => ['class' => 'd-flex'],
                 ])
             ->add('categories', null, [
-                'choice_label' => 'name'])
+                'choice_label' => 'name'
+                ])
+            ->add('updatedAt', DateType::class, [
+                'label' => 'Mise à jour',
+                'attr' => ['class' => 'col-2 d-flex'],
+                'format' => 'dd-MMM-yyyy',
+            ]);
         ;
     }
 

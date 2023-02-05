@@ -31,7 +31,7 @@
       <li>
         <!-- Button trigger modal -->
           <img type="button" class="" data-bs-toggle="modal" data-bs-target="#creationModal{{onecreation.id}}" 
-          src="{{ asset('build/images/' ~ onecreation.image) }}" alt="{{onecreation.title}}">
+          src="{{ asset('build/images/' ~ onecreation.imageu) }}" alt="{{onecreation.title}}">
        </li>
       {% endfor %}
   </ul>
@@ -45,7 +45,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-              <img class="modalImg" src="{{ asset('build/images/' ~ onecreation.image) }}" alt="{{onecreation.title}}">
+              <img class="modalImg" src="{{ asset('build/images/' ~ onecreation.imageu) }}" alt="{{onecreation.title}}">
               </div>
               <div class="text-dark ms-3">{{onecreation.description}} - {{onecreation.size}} - {{onecreation.price}}€</div>
               <div class="modal-footer">

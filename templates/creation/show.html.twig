@@ -18,8 +18,7 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td class=""><img class="pict" src="{{asset('build/images/' ~ creation.image)}}" 
-                alt="{{ creation.image }}"></td> 
+                <td class=""><img class="pict" src="{{ vich_uploader_asset(creation) }}" alt="{{ creation.title }}"></td> 
             </tr>
             <tr>
                 <th>Prix</th>

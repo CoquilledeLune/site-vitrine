@@ -22,7 +22,7 @@ class CreationController extends AbstractController
     {
         return $this->render('creation/index.html.twig', [
             'creations' => $creationRepository->findAll(),
-            'books' => $books,
+            'books' => $books->findAll(),
         ]);
     }
 

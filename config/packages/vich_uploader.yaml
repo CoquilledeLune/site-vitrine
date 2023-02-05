@@ -5,7 +5,7 @@ vich_uploader:
         type: attribute
 
     mappings:
-        creationPicture:
-            uri_prefix: /images
+        image_file:
+            uri_prefix: /uploads
             upload_destination: '%upload_directory%'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

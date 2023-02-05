@@ -27,8 +27,7 @@
                 <td>{{ creation.title }}</td>
                 <td>{{ creation.description }}</td>
                 <td>{{ creation.size }}</td>
-                <td class=""><img class="col pict" src="{{asset('build/images/' ~ creation.image)}}" 
-                alt="{{ creation.image }}"></td> 
+                <td><img class="col pict" src="{{ vich_uploader_asset(creation) }}" alt="{{ creation.title }}"></td>
                 <td>{{ creation.price }}</td>
                 <td>{{ creation.categories.name }}</td>
                 <td>

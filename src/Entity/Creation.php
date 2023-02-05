@@ -11,8 +11,10 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: CreationRepository::class)]
+#[Vich\Uploadable] 
 class  Creation
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -29,6 +31,12 @@ class  Creation
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
+
+     // On va créer un nouvel attribut à notre entité, qui ne sera pas lié à une colonne
+     // Tu peux d’ailleurs voir que l’attribut ORM column n’est pas spécifié car
+     // On ne rajoute pas de données de type file en bdd
+     #[Vich\UploadableField(mapping: 'poster_file', fileNameProperty: 'image')]
+     private ?File $posterFile = null;
 
     #[ORM\Column]
     private ?float $price = null;

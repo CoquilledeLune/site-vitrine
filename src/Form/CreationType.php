@@ -24,16 +24,16 @@ class CreationType extends AbstractType
                 'label' => 'Description',
                 'attr' => ['class' => 'd-flex'],
                 ])
-            ->add('size', FileType::class, [
+            ->add('size', TextType::class, [
+                'label' => 'Taille',
+                'attr' => ['class' => 'd-flex'],
+                ])
+            ->add('image', FileType::class, [
                 'label' => false,
                 'multiple' => true,
                 'mapped' => false,
                 'required' => false
-                ])
-            ->add('image', TextType::class, [
-                'label' => 'Image',
-                'attr' => ['class' => 'd-flex'],
-                ])
+            ])
             ->add('price', TextType::class, [
                 'label' => 'Prix',
                 'attr' => ['class' => 'd-flex'],

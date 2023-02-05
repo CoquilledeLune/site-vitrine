@@ -13,18 +13,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-
+#[IsGranted('ROLE_ADMIN')]
 #[Route('/creation')]
 class CreationController extends AbstractController
 {
     #[Route('/', name: 'app_creation_index', methods: ['GET'])]
-    public function index(CreationRepository $creationRepository, BookRepository $bookRepository): Response
+    public function index(CreationRepository $creationRepository, BookRepository $books): Response
     {
-        $creations = $creationRepository->findAll();
-        $books = $bookRepository->findAll();
-
         return $this->render('creation/index.html.twig', [
-            'creations' => $creations,
+            'creations' => $creationRepository->findAll(),
             'books' => $books,
         ]);
     }

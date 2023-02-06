@@ -20,7 +20,7 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
     {
       $book = new Book();
       $book->setTitle($one_book['Title']);
-      $book->setImage($one_book['Image']);
+      $book->setPoster($one_book['Image']);
       $book->setLink($one_book['Link']);
       $book->setCategories(($this->getReference($one_book['Category'])));
      

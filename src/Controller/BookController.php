@@ -57,7 +57,7 @@ class BookController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $bookRepository->save($book, true);
 
-            return $this->redirectToRoute('app_book_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_creation_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('book/edit.html.twig', [

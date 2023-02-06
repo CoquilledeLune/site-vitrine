@@ -31,7 +31,7 @@
       <li>
         <!-- Button trigger modal -->
           <img type="button" class="" data-bs-toggle="modal" data-bs-target="#creationModal{{onecreation.id}}" 
-          src="{{ asset('build/images/' ~ onecreation.imageu) }}" alt="{{onecreation.title}}">
+          src="{{ asset('build/images/' ~ onecreation.poster) }}" alt="{{onecreation.title}}">
        </li>
       {% endfor %}
   </ul>
@@ -45,7 +45,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-              <img class="modalImg" src="{{ asset('build/images/' ~ onecreation.imageu) }}" alt="{{onecreation.title}}">
+              <img class="modalImg" src="{{ asset('build/images/' ~ onecreation.poster) }}" alt="{{onecreation.title}}">
               </div>
               <div class="text-dark ms-3">{{onecreation.description}} - {{onecreation.size}} - {{onecreation.price}}€</div>
               <div class="modal-footer">
@@ -64,7 +64,7 @@
       <li>
         <!-- Button trigger modal -->
           <img type="button" class="" data-bs-toggle="modal" data-bs-target="#creationModal{{onebook.id}}" 
-          src="{{ asset('build/images/' ~ onebook.image) }}" alt="{{onebook.title}}">
+          src="{{ asset('build/images/' ~ onebook.poster) }}" alt="{{onebook.title}}">
        </li>
       {% endfor %}
   </ul>
@@ -78,7 +78,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-              <img class="modalImg" src="{{ asset('build/images/' ~ onebook.image) }}" alt="{{onebook.title}}">
+              <img class="modalImg" src="{{ asset('build/images/' ~ onebook.poster) }}" alt="{{onebook.title}}">
               </div>
               <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-secondary col-2 me-5"><a aria-current="page" class="buy" target="_blank" href="{{onebook.link}}">Acheter</a></button>

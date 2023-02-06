@@ -3,11 +3,12 @@
 {% block title %}Creation index{% endblock %}
 
 {% block body %}
-
-<a class="text-light fs-3" href="{{ path('app_index') }}">Retour au site</a>
-
+<div class="d-flex justify-content-between">
+<a class="text-light fs-3 ms-3 mt-2" href="{{ path('app_index') }}">Retour au site</a>
+<a class="text-warning fs-4 me-3 mt-2" href="{{ path('app_logout') }}">Se déconnecter</a>
+</div>
 <div class="bg-light mt-5">
-    <h3 class="text-dark pt-2">Liste des oeuvres dans la galerie</h3>
+    <h3 class="text-dark pt-2 ms-2">Liste des oeuvres dans la galerie</h3>
 
     <table class="table">
         <thead>
@@ -28,11 +29,12 @@
                 <td>{{ creation.description }}</td>
                 <td>{{ creation.size }}</td>
                 <td><img class="col pict" src="{{ vich_uploader_asset(creation) }}" alt="{{ creation.title }}"></td>
-                <td>{{ creation.price }}</td>
+                <td>{{ creation.price }}€</td>
                 <td>{{ creation.categories.name }}</td>
                 <td>
                     <a href="{{ path('app_creation_show', {'id': creation.id}) }}">Voir</a>
                     <a href="{{ path('app_creation_edit', {'id': creation.id}) }}">Modifier</a>
+                    <a class="btn d-flex text-danger" href="{{ path('app_creation_delete', {'id': creation.id}) }}">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -42,7 +44,7 @@
         {% endfor %}
         </tbody>
     </table>
-<h3 class="text-dark">Liste des livres</h3>
+<h3 class="text-dark ms-2">Liste des livres</h3>
     <table class="table">
         <thead>
             <tr>
@@ -58,12 +60,12 @@
             <tr>
                 <td>{{ book.title }}</td>
                 <td>{{ book.link }}</td>
-                <td class=""><img class="col pict" src="{{asset('build/images/' ~ book.image)}}" 
-                alt="{{ book.image }}"></td> 
+                <td class=""><img class="col pict" src="{{ vich_uploader_asset(book) }}" alt="{{ book.title }}"></td> 
                 <td>{{ book.categories.name }}</td>
                 <td>
                     <a href="{{ path('app_book_show', {'id': book.id}) }}">Voir</a>
                     <a href="{{ path('app_book_edit', {'id': book.id}) }}">Modifier</a>
+                    <a class="btn text-danger" href="{{ path('app_book_delete', {'id': book.id}) }}">Supprimer</a>
                 </td>
             </tr>
         {% else %}

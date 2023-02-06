@@ -31,8 +31,8 @@ class  Creation
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $size = null;
 
-    #[Vich\UploadableField(mapping: 'image_file', fileNameProperty: 'imageu')]
-    private ?File $imageFile = null;
+    #[Vich\UploadableField(mapping: 'poster_file', fileNameProperty: 'poster')]
+    private ?File $posterFile = null;
 
     #[ORM\Column]
     private ?float $price = null;
@@ -45,7 +45,7 @@ class  Creation
     private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $imageu = null;
+    private ?string $poster = null;
 
     public function getId(): ?int
     {
@@ -112,41 +112,42 @@ class  Creation
         return $this;
     }
 
-    public function setImageFile(File $image = null): Creation
+    public function setPosterFile(File $image = null): Creation
     {
-        $this->imageFile = $image;
+       $this->posterFile = $image;
+  
         if ($image) {
             $this->updatedAt = new DateTime('now');
-       }
+        }
     
       return $this;
     }
 
-    public function getImageFile(): ?File
+    public function getPosterFile(): ?File
     {
-        return $this->imageFile;
+        return $this->posterFile;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(?DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
-    public function getImageu(): ?string
+    public function getPoster(): ?string
     {
-        return $this->imageu;
+        return $this->poster;
     }
 
-    public function setImageu(?string $imageu): self
+    public function setPoster(?string $poster): self
     {
-        $this->imageu = $imageu;
+        $this->poster = $poster;
 
         return $this;
     }

@@ -10,8 +10,7 @@
         <tbody>
             <tr>
                 <th>Couverture</th>
-                <td class=""><img class="pict" src="{{asset('build/images/' ~ book.image)}}" 
-                alt="{{ book.image }}"></td> 
+                <td class=""><img class="pict" src="{{ vich_uploader_asset(book) }}" alt="{{ book.title }}"></td> 
             </tr>
             <tr>
                 <th>Lien</th>

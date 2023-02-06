@@ -28,12 +28,11 @@ class CreationType extends AbstractType
                 'label' => 'Taille',
                 'attr' => ['class' => 'd-flex'],
                 ])
-            ->add('imageFile', VichFileType::class, [
+            ->add('posterFile', VichFileType::class, [
                 'label' => 'Image',
-                'mapped' => false,
                 'required' => false,
-                'allow_delete'  => true, 
-                'download_uri' => true
+                'allow_delete'  => false, 
+                'download_uri' => false
             ])
             ->add('price', TextType::class, [
                 'label' => 'Prix',
@@ -42,11 +41,6 @@ class CreationType extends AbstractType
             ->add('categories', null, [
                 'choice_label' => 'name'
                 ])
-            ->add('updatedAt', DateType::class, [
-                'label' => 'Mise à jour',
-                'attr' => ['class' => 'col-2 d-flex'],
-                'format' => 'dd-MMM-yyyy',
-            ]);
         ;
     }
 

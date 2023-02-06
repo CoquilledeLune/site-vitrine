@@ -6,15 +6,15 @@
 <div class="bg-secondary mt-5 col-4 ms-5">
     <h3 class="text-light pt-2 ms-5">Modifier</h3>
         <div class="ms-5">
-    {{ form_start(form) }}
-        {{ form_row(form.title) }}
-        {{ form_row(form.description) }}
-        {{ form_row(form.size) }}
-        {{ form_row(form.imageFile) }}
-        {{ form_row(form.price) }}
-        {{ form_row(form.categories) }}
-        <button class="btn">{{ button_label|default('Enregistrer') }}</button>
-    {{ form_end(form) }}
+            {{ form_start(form) }}
+                {{ form_row(form.title) }}
+                {{ form_row(form.description) }}
+                {{ form_row(form.size) }}
+                {{ form_row(form.posterFile) }}
+                {{ form_row(form.price) }}
+                {{ form_row(form.categories) }}
+                <button type="submit" class="btn">Enregistrer</button>
+            {{ form_end(form) }}
 
         <a class="text-dark text-decoration-none ps-2" href="{{ path('app_creation_index') }}">Retour à la liste</a>
 

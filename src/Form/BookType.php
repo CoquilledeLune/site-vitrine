@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class BookType extends AbstractType
 {
@@ -17,10 +18,12 @@ class BookType extends AbstractType
             'label' => 'Titre',
             'attr' => ['class' => 'd-flex'],
             ])
-            ->add('image', TextType::class, [
+            ->add('posterFile', VichFileType::class, [
                 'label' => 'Image',
-                'attr' => ['class' => 'd-flex'],
-                ])
+                'required' => false,
+                'allow_delete'  => false, 
+                'download_uri' => false
+            ])
             ->add('link', TextType::class, [
                     'label' => 'Lien',
                     'attr' => ['class' => 'd-flex'],

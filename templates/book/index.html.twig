@@ -19,7 +19,7 @@
         {% for book in books %}
             <tr>
                 <td>{{ book.title }}</td>
-                <td>{{ book.image }}</td>
+                <td>{{ book.poster }}</td>
                 <td>{{ book.link }}</td>
                 <td>
                     <a href="{{ path('app_book_show', {'id': book.id}) }}">show</a>

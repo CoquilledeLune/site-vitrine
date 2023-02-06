@@ -31,7 +31,7 @@ class CreationFixtures extends Fixture
       $creation->setTitle($one_creation['Title']);
       $creation->setDescription($one_creation['Description']);
       $creation->setSize($one_creation['Size']);
-      $creation->setImage($one_creation['Image']);
+      $creation->setPoster($one_creation['Image']);
       $creation->setPrice($one_creation['Price']);
       $creation->setCategories(($this->getReference($one_creation['Category'])));
 

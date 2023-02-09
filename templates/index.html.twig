@@ -40,16 +40,18 @@
         <div class="modal fade" id="creationModal{{onecreation.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">{{onecreation.title}}</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div class="d-flex flex-column">
+                <div class="d-flex flex-row justify-content-between">
+                  <h1 class="modal-title fs-5 ms-3 mt-2" id="exampleModalLabel">{{onecreation.title}}</h1>
+                  <button type="button" class="btn-close me-2 mt-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h1 class="modal-title fs-6 text-start ms-3" id="exampleModalLabel">{{onecreation.description}} - {{onecreation.size}} - {{onecreation.price}}€</h1>
               </div>
               <div class="modal-body">
-              <img class="modalImg" src="{{ asset('build/images/' ~ onecreation.poster) }}" alt="{{onecreation.title}}">
+              <img class="modalImg img-fluid" src="{{ asset('build/images/' ~ onecreation.poster) }}" alt="{{onecreation.title}}">
               </div>
-              <div class="text-dark ms-3">{{onecreation.description}} - {{onecreation.size}} - {{onecreation.price}}€</div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary col-2"><a aria-current="page" class="buy" target="_blank" href="">Acheter</a></button>
               </div>
             </div>
           </div>
@@ -74,11 +76,11 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">{{onebook.title}}</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{{onebook.title}}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-              <img class="modalImg" src="{{ asset('build/images/' ~ onebook.poster) }}" alt="{{onebook.title}}">
+              <img class="modalImg img-fluid" src="{{ asset('build/images/' ~ onebook.poster) }}" alt="{{onebook.title}}">
               </div>
               <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-secondary col-2 me-5"><a aria-current="page" class="buy" target="_blank" href="{{onebook.link}}">Acheter</a></button>
